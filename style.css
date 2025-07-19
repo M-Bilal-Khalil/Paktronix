@@ -96,9 +96,7 @@ body {
     padding: 6px 10px;
   }
   /* Responsive tweaks for cart table */
-@media (max-width: 576px) {
-
-    .navbar-nav {
+  .navbar-nav {
     flex-direction: column !important;
     gap: 0 !important;
     align-items: flex-end;
@@ -135,7 +133,6 @@ body {
     padding: 1rem;
   }
 }
-}
 
 .nav-link-underline {
   position: relative;
@@ -167,4 +164,5 @@ body {
 
 footer {
   flex-shrink: 0;
+  background-color: black;
 }
