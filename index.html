@@ -11,17 +11,27 @@
   <body>
 
     <nav class="navbar navbar-dark bg-dark mb-4">
-      <div class="container">
-        <a class="navbar-brand" href="#"> <img src="assets/Paktronix.png" alt="">Paktronix</a>
-        <button id="cart-btn" class="btn position-relative">
-          <!-- <span class="bi bi-cart"></span>   -->
-          <span class="big-cart">🛒</span>
-          <span
-            id="cart-count"
-            class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-        </button>
-      </div>
-    </nav>
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="#">Paktronix</a>
+  <ul class="navbar-nav flex-row gap-4"> <!-- increased gap from gap-3 to gap-4 -->
+  <li class="nav-item">
+    <a class="nav-link text-white nav-link-underline" href="#">Gallery</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white nav-link-underline" href="#">About Us</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-white nav-link-underline" href="#">Contact</a>
+  </li>
+</ul>
+    <button id="cart-btn" class="btn position-relative">
+      <span class="big-cart">🛒</span>
+      <span
+        id="cart-count"
+        class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+    </button>
+  </div>
+</nav>
 
     <div class="container">
       <h3 class="product-text mb-4 text-center">Our Products</h3>
@@ -29,6 +39,15 @@
         <!-- JS will render product cards here -->
       </div>
     </div>
+
+
+<footer class="bg-dark text-white mt-5 py-4">
+  <div class="container text-center">
+    <h5 class="mb-2">Paktronix</h5>
+    <p class="mb-1">Your trusted computing devices shop</p>
+    <small>&copy; 2025 Paktronix. All rights reserved.</small>
+  </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
