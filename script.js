@@ -31,23 +31,24 @@ function renderProducts() {
     const col = document.createElement("div");
     // Responsive grid classes
     col.className = "col-12 col-sm-6 col-md-4 col-lg-3 mb-4";
-   col.innerHTML = `
-  <div class="card h-100">
-    <img src="${product.image}" class="card-img-top product-img img-fluid" alt="${product.name}">
-    <div class="card-body d-flex flex-column">
-      <h5 class="card-title">${product.name}</h5>
-      <p class="card-text">Price: $${product.price}</p>
-      <p class="card-text text-muted" style="font-size:0.9em;">${product.description}</p>
-      <button class="btn btn-dark mt-auto add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
-    </div>
-  </div>
-`;
+    col.innerHTML = `
+      <div class="card h-100">
+        <img src="${product.image}" class="card-img-top product-img img-fluid" alt="${product.name}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${product.name}</h5>
+          <p class="card-text">Price: $${product.price}</p>
+          <p class="card-text text-muted" style="font-size:0.9em;">${product.description}</p>
+          <button class="btn btn-dark mt-auto add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
+        </div>
+      </div>
+    `;
     row.appendChild(col);
   });
   // Add event listeners for Add to Cart buttons
   document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
     btn.addEventListener("click", function() {
       addToCart(parseInt(this.dataset.id));
+      showCartAlert();
     });
   });
 }
@@ -93,6 +94,7 @@ function renderCart() {
     totalQty += item.quantity;
     totalPrice += product.price * item.quantity;
     const tr = document.createElement("tr");
+    tr.className = "cart-item";
     tr.innerHTML = `
       <td><img src="${product.image}" class="cart-img img-fluid" alt="${product.name}"></td>
       <td>${product.name}</td>
@@ -106,8 +108,10 @@ function renderCart() {
     `;
     cartTable.appendChild(tr);
   });
-  document.getElementById("total-qty").textContent = totalQty;
-  document.getElementById("total-price").textContent = "$" + totalPrice;
+  const qtyElem = document.getElementById("total-qty");
+  const priceElem = document.getElementById("total-price");
+  if (qtyElem) qtyElem.textContent = totalQty;
+  if (priceElem) priceElem.textContent = "$" + totalPrice;
 }
 
 // Change quantity (+/-) in cart
@@ -121,6 +125,16 @@ window.changeQty = function(productId, delta) {
   }
   saveCart(cart);
   renderCart();
+}
+
+// Show cart alert
+function showCartAlert() {
+  const alert = document.getElementById('cart-alert');
+  if (!alert) return;
+  alert.classList.remove('d-none');
+  setTimeout(() => {
+    alert.classList.add('d-none');
+  }, 2500);
 }
 
 // On page load
