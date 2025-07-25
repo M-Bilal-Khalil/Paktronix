@@ -85,7 +85,9 @@ if (cartBtn) {
 function renderCart() {
   const cartTable = document.getElementById("cart-table-body");
   if (!cartTable) return; // Only run on cart.html
-  const cart = getCart();
+  let cart = getCart();
+  // Sort cart items by quantity (highest first)
+  cart = cart.sort((a, b) => b.quantity - a.quantity);
   cartTable.innerHTML = "";
   let totalQty = 0;
   let totalPrice = 0;

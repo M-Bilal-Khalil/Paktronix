@@ -4,6 +4,7 @@ html, body {
   padding: 0;
 }
 
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -16,8 +17,6 @@ body {
 .container {
   flex: 1 0 auto;
 }
-
-
 
 .card {
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s;
@@ -33,6 +32,11 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
+tr.cart-item:hover > td {
+  background-color: lavender ;
+  transition: background 0.2s;
+}
+
 .product-img {
   height: 220px; /* Fill up the card vertically */
   width: 100%;
@@ -43,7 +47,6 @@ body {
   margin: 0 auto;
 }
 
-/* Cart image style */
 .cart-img {
   max-height: 48px;
   max-width: 48px;
